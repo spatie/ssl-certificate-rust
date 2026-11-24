@@ -52,14 +52,12 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 
 ## Installation
 
-Requires Rust 1.89 or newer. The crate is not yet published to crates.io. Add this Git dependency to your `Cargo.toml`:
+Requires Rust 1.89 or newer. Add the crate to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-spatie-ssl-certificate = { git = "https://github.com/spatie/ssl-certificate-rust", branch = "main" }
+spatie-ssl-certificate = "1"
 ```
-
-Commit your application's `Cargo.lock` to keep the selected Git revision between builds.
 
 ## Usage
 
