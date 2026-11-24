@@ -1,6 +1,6 @@
 ---
 title: v1
-slogan: {{description_quoted}}
-githubUrl: https://github.com/{{owner}}/{{repository}}
+slogan: "Read and validate SSL certificates"
+githubUrl: https://github.com/spatie/ssl-certificate-rust
 branch: main
 ---

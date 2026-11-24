@@ -1,6 +1,6 @@
 ---
 title: Changelog
-weight: 6
+weight: 7
 ---
 
-See the [changelog on GitHub](https://github.com/{{owner}}/{{repository}}/blob/main/CHANGELOG.md).
+See the [changelog on GitHub](https://github.com/spatie/ssl-certificate-rust/blob/main/CHANGELOG.md).
