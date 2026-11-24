@@ -1,4 +1,4 @@
-# spatie-ssl-certificate
+# A class to validate SSL certificates
 
 [![Latest version on crates.io](https://img.shields.io/crates/v/spatie-ssl-certificate.svg?style=flat-square)](https://crates.io/crates/spatie-ssl-certificate)
 [![Tests](https://img.shields.io/github/actions/workflow/status/spatie/ssl-certificate-rust/ci.yml?branch=main&style=flat-square)](https://github.com/spatie/ssl-certificate-rust/actions/workflows/ci.yml)
