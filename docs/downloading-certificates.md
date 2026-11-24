@@ -54,10 +54,10 @@ The result contains the chain the server sent, not the local trust store. Server
 
 SNI is enabled by default. `using_sni(false)` turns it off without disabling hostname verification. `from_ip_address()` changes the connection target, but the original host name is still used for SNI and verification. An explicit port in the URL takes precedence over `using_port()`.
 
-This package only performs a TLS handshake. It sends no HTTP request and never follows redirects, so there is no equivalent of PHP's ineffective `setFollowLocation` option.
+This package only performs a TLS handshake. It sends no HTTP request and never follows redirects.
 
 ## Socket context options
 
-`with_socket_context_options()` accepts `SocketOptions`, not a PHP context array. Set `bind_address` for a local bind address and port, `ipv6_only` for `IPV6_V6ONLY`, `tcp_nodelay` for TCP_NODELAY or `reuse_address` for SO_REUSEADDR. The bind address family must match the connection target.
+`with_socket_context_options()` accepts `SocketOptions`. Set `bind_address` for a local bind address and port, `ipv6_only` for `IPV6_V6ONLY`, `tcp_nodelay` for TCP_NODELAY or `reuse_address` for SO_REUSEADDR. The bind address family must match the connection target.
 
 rustls negotiates TLS 1.2 or 1.3 with modern cipher suites. A server that only supports obsolete TLS versions or algorithms cannot be inspected through this downloader, even with verification disabled. You can still parse its certificate from a PEM file or DER bytes.

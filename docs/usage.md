@@ -259,7 +259,7 @@ certificate.is_valid(Some("laravel.com")); // returns false
 # }
 ```
 
-This is a metadata check, not a check of the certificate's chain of trust. Downloads verify trust separately. `applies_to_url()` checks domain coverage without checking dates. It accepts URLs, bare host names and IP addresses. It checks the primary domain as well as alternative names, just like the PHP package. rustls uses stricter WebPKI rules for the actual TLS handshake.
+This is a metadata check, not a check of the certificate's chain of trust. Downloads verify trust separately. `applies_to_url()` checks domain coverage without checking dates. It accepts URLs, bare host names and IP addresses. It checks the primary domain as well as alternative names. rustls uses stricter WebPKI rules for the actual TLS handshake.
 
 ### Determining if the certificate is still valid until a given date
 
@@ -314,16 +314,16 @@ SslCertificate::create_from_array(certificate_properties)?;
 # }
 ```
 
-`CertificateProperties` stores DER bytes and the optional peer socket address. Both the properties and `SslCertificate` implement Serde serialization. Deserialization parses the DER again. These are Rust-native properties, not PHP's array or serialized object format.
+`CertificateProperties` stores DER bytes and the optional peer socket address. Both the properties and `SslCertificate` implement Serde serialization. Deserialization parses the DER again.
 
 ### Other certificate properties
 
 `serial_number()` returns the serial number as a decimal string. `public_key_algorithm()` and `public_key_size()` return the public key algorithm and size in bits.
 
-`raw_certificate_fields()` exposes typed metadata, with distinguished-name attributes keyed by dotted OIDs and every extension's original DER value. `raw_certificate_fields_json()` and the certificate's `Display` implementation return that metadata as JSON. `hash()` is an MD5 identifier of this JSON, not a security digest. Its value differs from PHP's OpenSSL-specific metadata hash; use a fingerprint to compare the same certificate across languages.
+`raw_certificate_fields()` exposes typed metadata, with distinguished-name attributes keyed by dotted OIDs and every extension's original DER value. `raw_certificate_fields_json()` and the certificate's `Display` implementation return that metadata as JSON. `hash()` is an MD5 identifier of this JSON, not a security digest. Use a certificate fingerprint when comparing certificates between applications.
 
 `contains_domain()` checks literal domain membership, including subdomains of an entry. It is case-sensitive and treats `*` literally. Use `applies_to_url()` for case-insensitive wildcard and URL matching.
 
-`is_self_signed()` compares the issuer and subject common names, just like the PHP package. It is a heuristic, not signature or trust verification. `uses_sha1_hash()` detects SHA-1 certificate signatures. `is_pre_certificate()` checks for the CT poison extension.
+`is_self_signed()` compares the issuer and subject common names. It is a heuristic, not signature or trust verification. `uses_sha1_hash()` detects SHA-1 certificate signatures. `is_pre_certificate()` checks for the CT poison extension.
 
 `remote_address()` returns the peer's `SocketAddr` when downloaded, or `None` when loaded locally. `as_der()` and `to_pem()` expose the original certificate. `SslCertificate::der2pem()` wraps DER bytes in a PEM envelope.
