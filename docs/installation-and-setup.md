@@ -14,4 +14,4 @@ spatie-ssl-certificate = { git = "https://github.com/spatie/ssl-certificate-rust
 
 The crate is not yet published to crates.io. Commit your application's `Cargo.lock` to keep the selected Git revision between builds.
 
-Downloads use your system's trusted CA certificates. On Linux, install your distribution's `ca-certificates` package if the trust store is empty. You can also [use your own CA bundle](downloading-certificates.md#using-your-own-ca-bundle).
+Downloads use your system's trusted CA certificates. On Linux, install your distribution's `ca-certificates` package if the trust store is empty. You can also [use your own CA bundle](downloading-certificates.md).
